@@ -139,7 +139,7 @@ def run_test_set(user_args, num):
 
 def parse_test_file(file_name, data_dict):
 	parse_data = data_dict.copy()
-
+	class_with_main = ''
 	test_file = file_rw(file_name)
 
 	# line one of java file -- get number of lines of output
