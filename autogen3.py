@@ -546,7 +546,7 @@ def check_directory_exists(directory):
 	dir_path = Path(directory)
 	exists = dir_path.exists()
 	if exists is False:
-		sys.exit(f"Required directory does not exist: {dir_path}")
+		sys.exit(f"Required directory/file does not exist: {dir_path}")
 	return True
 
 ############################### LOCATION GENERATORS ################################
