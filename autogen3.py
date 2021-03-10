@@ -287,6 +287,7 @@ def test_generator(location_dict, result_dict, ref, esp, phase, verbose=False):
 
 	for key, location in location_dict.items():
 		print(f"\n\nGenerating files from directory: {location}")
+		#print(esp)
 		output_c, output_cr = get_output_locations(key)
 
 		result_dict[esp][(str(output_c))] = {}
@@ -297,19 +298,21 @@ def test_generator(location_dict, result_dict, ref, esp, phase, verbose=False):
 			if only_name is not None:
 				print(f"\n{only_name}", end="")
 
+				# create subfolders for all of the output files
 				if phase == 6:
-					test_sub_dirc = output_c / name
-					test_sub_dircr = output_cr / name
-
-					run_sys_cmd([f"mkdir {test_sub_dirc}"])
-					run_sys_cmd([f"mkdir {test_sub_dircr}"])
-
-					out_c = test_sub_dirc / (name + ".txt")
-					out_cr = test_sub_dircr / (name + ".txt")
+					test_sub_dirc = output_c / esp / name
+					test_sub_dircr = output_cr / esp / name
 
 				else:
-					out_c = output_c / (name + ".txt")
-					out_cr = output_cr / (name + ".txt")
+					test_sub_dirc = output_c / esp
+					test_sub_dircr = output_cr / esp
+
+
+				out_c = test_sub_dirc / (name + ".txt")
+				out_cr = test_sub_dircr / (name + ".txt")
+
+				run_sys_cmd([f"mkdir {test_sub_dirc}"])
+				run_sys_cmd([f"mkdir {test_sub_dircr}"])
 
 				result_dict[esp][(str(output_c))][(str(out_c))] = {"build_errors": {}}
 
