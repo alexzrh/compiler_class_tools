@@ -287,7 +287,6 @@ def test_generator(location_dict, result_dict, ref, esp, phase, verbose=False):
 
 	for key, location in location_dict.items():
 		print(f"\n\nGenerating files from directory: {location}")
-		#print(esp)
 		output_c, output_cr = get_output_locations(key)
 
 		result_dict[esp][(str(output_c))] = {}
