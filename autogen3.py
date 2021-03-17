@@ -276,6 +276,7 @@ def test_generator(location_dict, result_dict, ref, esp, phase, verbose=False):
 
 	def get_just_filename(file_name):
 		# strip off the extension
+		name = None
 		only_name = None
 		try:
 			only_name = file_name.name
